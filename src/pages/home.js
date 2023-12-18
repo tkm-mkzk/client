@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { CardActionArea, CardMedia, Typography } from '@mui/material'
 import Link from 'next/link'
+import SearchBar from '@/components/SearchBar'
 
 const Home = () => {
     const [movies, setMovies] = useState([])
@@ -35,6 +36,8 @@ const Home = () => {
             <Head>
                 <title>Laravel - Home</title>
             </Head>
+
+            <SearchBar />
 
             <Swiper
                 spaceBetween={30}
@@ -70,7 +73,7 @@ const Home = () => {
                                 <CardMedia
                                     component={'img'}
                                     sx={{ aspectRatio: '2/3' }}
-                                    image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                                    image={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                     alt={movie.title}
                                 />
                             </CardActionArea>
