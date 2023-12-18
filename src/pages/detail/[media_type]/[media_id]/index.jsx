@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import axios from 'axios'
 import Head from 'next/head'
 
-const Detail = ({ detail }) => {
+const Detail = ({ detail, media_type }) => {
     console.log(detail)
 
     return (
@@ -75,13 +75,15 @@ const Detail = ({ detail }) => {
                             </Grid>
                             <Grid item md={8}>
                                 <Typography variant="h4" paragraph>
-                                    {detail.title}
+                                    {detail.title || detail.name}
                                 </Typography>
                                 <Typography variant="h4" paragraph>
                                     {detail.overview}
                                 </Typography>
                                 <Typography variant="h6">
-                                    公開日:{detail.release_date}
+                                    {media_type == 'movie'
+                                        ? `公開日:${detail.release_date}`
+                                        : `初回放送日:${detail.first_air_date}`}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -111,7 +113,7 @@ export async function getServerSideProps(context) {
         }
 
         return {
-            props: { detail: combinedData },
+            props: { detail: combinedData, media_type, media_id },
         }
     } catch {
         return { notFound: true }
