@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { CardActionArea, CardMedia, Typography } from '@mui/material'
 import Link from 'next/link'
+import SearchBar from '@/components/SearchBar'
 
 const Home = () => {
     const [movies, setMovies] = useState([])
@@ -26,12 +27,14 @@ const Home = () => {
         <AppLayout
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
+                    Home
                 </h2>
             }>
             <Head>
-                <title>Laravel - Dashboard</title>
+                <title>Laravel - Home</title>
             </Head>
+
+            <SearchBar />
 
             <Swiper
                 spaceBetween={30}
