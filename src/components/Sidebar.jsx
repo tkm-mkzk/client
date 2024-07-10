@@ -18,7 +18,7 @@ const Sidebar = ({ setCategory }) => {
                     <ListItemText primary="全て"></ListItemText>
                 </ListItemButton>
                 <ListItemButton onClick={() => setCategory('movie')}>
-                    <ListItemText primary="映画"></ListItemText>
+                    <ListItemText primary="映画a"></ListItemText>
                 </ListItemButton>
                 <ListItemButton onClick={() => setCategory('tv')}>
                     <ListItemText primary="TV"></ListItemText>
